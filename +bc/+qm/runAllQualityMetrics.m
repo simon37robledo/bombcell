@@ -106,7 +106,7 @@ else
 end
 
 %% loop through units and get quality metrics
-fprintf('\n Extracting quality metrics from %s ... \n', param.rawFile)
+fprintf('\n Extracting quality metrics from %s ... \n', param.rawFile.name)
 
 for iUnit = 1:size(uniqueTemplates, 1)
     clearvars thisUnit theseSpikeTimes theseAmplis theseSpikeTemplates
@@ -203,10 +203,10 @@ if param.extractRaw
     qMetric.signalToNoiseRatio = signalToNoiseRatio';
 end
 
-fprintf('\n Finished extracting quality metrics from %s', param.rawFile)
+fprintf('\n Finished extracting quality metrics from %s', param.rawFile.name)
 
 qMetric = bc.qm.saveQMetrics(param, qMetric, forGUI, savePath, medianSpikeDepth, timeBins);
-fprintf('\n Saved quality metrics from %s to %s \n', param.rawFile, savePath)
+fprintf('\n Saved quality metrics from %s to %s \n', param.rawFile.name, savePath)
 
 unitType = bc.qm.getQualityUnitType(param, qMetric, savePath);
 bc.qm.plotGlobalQualityMetric(qMetric, param, unitType, uniqueTemplates, forGUI.tempWv);

@@ -60,16 +60,16 @@ if param.extractRaw
         end
         dataTypeNBytes = numel(typecast(cast(0, 'uint16'), 'uint8'));
         nClust = numel(emptyWaveforms);
-        rawFileInfo = dir(param.rawFile);
+        rawFileInfo = param.rawFile;
         BatchSize = 5000;
         if param.saveMultipleRaw && ~isfolder(fullfile(savePath, 'RawWaveforms'))
             mkdir(fullfile(savePath, 'RawWaveforms'))
         end
 
-        fprintf('\n Extracting raw waveforms from %s ...', param.rawFile)
+        fprintf('\n Extracting raw waveforms from %s ...', param.rawFile.name)
 
         % Get binary file name
-        fid = fopen(param.rawFile, 'r');
+        fid = fopen(string(param.rawFile.folder)+filesep+string(param.rawFile.name), 'r');
 
         % loop over spike clusters
         for iCluster = 1:size(emptyWaveforms, 1)
