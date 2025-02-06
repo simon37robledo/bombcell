@@ -60,6 +60,7 @@ if param.extractRaw
         end
         dataTypeNBytes = numel(typecast(cast(0, 'uint16'), 'uint8'));
         nClust = numel(emptyWaveforms);
+        param.rawFile = dir(param.rawFile);
         rawFileInfo = param.rawFile;
         BatchSize = 5000;
         if param.saveMultipleRaw && ~isfolder(fullfile(savePath, 'RawWaveforms'))
