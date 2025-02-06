@@ -86,13 +86,13 @@ else
 end
 
 % refractory period parameters
-param.tauR_valuesMin = 2/1000; % refractory period time (s), usually 0.0020. 
+param.tauR_valuesMin = 1/1000; % refractory period time (s), usually 0.0020. 
     % If this value is different than param.tauR_valuesMax, bombcell will
     % estimate the tauR value taking possible values between :
     % param.tauR_valuesMin:param.tauR_valuesStep:param.tauR_valuesMax
 param.tauR_valuesStep = 0.5/1000; % refractory period time (s) steps. Only 
     % used if param.tauR_valuesMin is different from param.tauR_valuesMax
-param.tauR_valuesMax = 2/1000; % refractory period time (s), usually 0.0020
+param.tauR_valuesMax = 3/1000; % refractory period time (s), usually 0.0020
 param.tauC = 0.1/1000; % censored period time (s) - this is to prevent duplicate spikes 
 param.hillOrLlobetMethod = 1; % 1 to use Hill et al method; 0 to use Llobet et al method
 
@@ -158,7 +158,7 @@ param.maxWvDuration = 1150; % in us
 param.minSpatialDecaySlope = -0.008; % in a.u./um
 param.minSpatialDecaySlopeExp = 0.01; % in a.u./um
 param.maxSpatialDecaySlopeExp = 0.1; % in a.u./um
-param.maxWvBaselineFraction = 0.3; % maximum absolute value in waveform baseline
+param.maxWvBaselineFraction = 0.5; % maximum absolute value in waveform baseline
     % should not exceed this fraction of the waveform's abolute peak value
 param.maxScndPeakToTroughRatio_noise = 0.8; % peak must be less than this x the trough 
 
@@ -180,8 +180,8 @@ param.minAmplitude = 20; % in uV
 param.maxRPVviolations = 0.1; % fraction
 param.maxPercSpikesMissing = 20; % in percentage
 param.minNumSpikes = 300; % number of spikes
-param.maxDrift = 100; % in micrometers 
-param.minPresenceRatio = 0.7; % fraction
+param.maxDrift = 200; % in micrometers 
+param.minPresenceRatio = 0.5; % fraction
 param.minSNR = 1;
 
 end
